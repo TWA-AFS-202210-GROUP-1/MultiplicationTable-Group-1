@@ -1,46 +1,59 @@
-import { MultiplicationTable } from '../src/MultiplicationTable'
+import {render, createRow} from '../src/MultiplicationTable'
 
 describe('Multiplication Table', () => {
-  it('should render multiplication table of (2, 4)', () => {
+  it('should render multiplication table of (1, 1)', () => {
     // given
-    const table = new MultiplicationTable()
-    const start = 2
-    const end = 4
-
-    // when
-    const rendered = table.render(start, end)
-
-    // then
-    expect(rendered).toBe('2*4=8')
-  })
-
-  it('should return true given numbers [1, 5]', () => {
-    const table = new MultiplicationTable()
     const start = 1
-    const end = 5
-
-    const isValid = table.isValid(start, end)
-
-    expect(isValid).toBeTruthy()
-  })
-
-  it('should return false given numbers [5, 1]', () => {
-    const table = new MultiplicationTable()
-    const start = 5
     const end = 1
 
-    const isValid = table.isValid(start, end)
+    //when
+    const rendered = render(start, end)
 
-    expect(isValid).toBeFalsy()
+    //then
+    expect(rendered).toBe('1*1=1')
   })
+})
 
-  it('should return false given numbers [0, 11]', () => {
-    const table = new MultiplicationTable()
-    const start = 0
+describe('Input wrong start and end', () => {
+  it('input 2 ,1 should be false', () => {
+    // given
+    const start = 2
+    const end = 1
+
+    //when
+    const rendered = render(start, end)
+
+    //then
+    expect(rendered).toBe('')
+  })
+  it('input 12 ,11 should be false', () => {
+    // given
+    const start = 12
     const end = 11
 
-    const isValid = table.isValid(start, end)
+    //when
+    const rendered = render(start, end)
 
-    expect(isValid).toBeFalsy()
+    //then
+    expect(rendered).toBe('')
+  })
+})
+describe('Create a line', () => {
+  it('With 2 to 4 equal 2*4=8  3*4=12  4*4=16', () => {
+    const line:string = createRow(2,4)
+    expect(line).toBe('2*4=8  3*4=12  4*4=16')
+  })
+})
+
+describe('Create a Table', () => {
+  it('With 2 to 4 equal the given table', () => {
+    const table:string = render(2,4)
+    expect(table).toBe(`2*2=4
+2*3=6  3*3=9
+2*4=8  3*4=12  4*4=16`)
+  }),
+  it('With 2 to 2 equal the 2*2=4', () => {
+    const table:string = render(2,2)
+    expect(table).toBe('2*2=4')
   })
 })
