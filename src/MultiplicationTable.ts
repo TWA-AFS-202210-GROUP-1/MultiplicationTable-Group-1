@@ -4,8 +4,8 @@ export class MultiplicationTable {
     return "1*1=1";
   }
 
-  private isValid(start: number, end: number): boolean {
-    const isValid = isValidRange(start, end);
+  public isValid(start: number, end: number): boolean {
+    const isValid = start <= end && start >= 1 && end <= 10;
 
     return isValid;
   }
