@@ -3,11 +3,10 @@ export class MultiplicationTable {
     const isValid = this.isValidInput(start, end)
 
     if (isValid) {
-      return this.GenerateEachLine(start, end)
+      return this.GenerateMulTable(start, end)
     }else{
       return ""
     }
-    // return '1*1=1'
   }
 
   private isValidInput(start: number, end: number): boolean{
@@ -22,11 +21,20 @@ export class MultiplicationTable {
     return start >= 1 && end <= 10
   }
 
+  // 2, 4 => [2,2], [2,3], [2,4]
   private GenerateMulTable(start: number, end: number): string{
-    return "1*1=1"
+    let mulTable = ""
+    const intervalLength = end - start
+    const lineStart = start
+    for (let index = 0; index <= intervalLength; index++) {
+      let lineEnd = lineStart + index
+      let eachLine = this.GenerateEachLine(lineStart, lineEnd) + '\n'
+      mulTable += eachLine
+    }
+    return mulTable.substring(0,mulTable.length-1)
   }
 
-  // [2, 3, 4] => "2*4  3*4  4*4"
+  // [2, 4] => "2*4  3*4  4*4"
   private GenerateEachLine(lineStart: number, lineEnd: number): string{
     const lineLength = lineEnd - lineStart + 1
     let eachLine = ""
@@ -37,10 +45,4 @@ export class MultiplicationTable {
     }
     return eachLine.substring(0,eachLine.length-2)
   }
-
-  // rows: 
-  // array.from :生成range 输入1，4 得到（1，2，3，4）
-  // .map(=>)
-  // .join("\n")
-
 }
