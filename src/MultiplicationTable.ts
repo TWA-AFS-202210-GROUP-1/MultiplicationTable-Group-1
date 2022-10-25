@@ -3,11 +3,10 @@ export class MultiplicationTable {
     const isValid = this.isValidInput(start, end)
 
     if (isValid) {
-      return this.GenerateMulTable(start, end)
+      return this.GenerateEachLine(start, end)
     }else{
       return ""
     }
-    
     // return '1*1=1'
   }
 
@@ -28,14 +27,16 @@ export class MultiplicationTable {
   }
 
   // [2, 3, 4] => "2*4  3*4  4*4"
-  // private GenerateEachLine(lineStart: number, lineEnd: number): string{
-  //   const lineLength = lineEnd - lineStart + 1
-  //   const eachLine = ""
-  //   for (let index = 0; index < lineLength; index++) {
-  //     const newCell = lineStart + '*' + lineEnd + '=' + lineStart * lineEnd + '  '
-  //     const element = array[index];
-  //   }
-  // }
+  private GenerateEachLine(lineStart: number, lineEnd: number): string{
+    const lineLength = lineEnd - lineStart + 1
+    let eachLine = ""
+    for (let index = 0; index < lineLength; index++) {
+      const newCell = lineStart + '*' + lineEnd + '=' + lineStart * lineEnd + '  '
+      eachLine += newCell
+      lineStart += 1
+    }
+    return eachLine.substring(0,eachLine.length-2)
+  }
 
   // rows: 
   // array.from :生成range 输入1，4 得到（1，2，3，4）

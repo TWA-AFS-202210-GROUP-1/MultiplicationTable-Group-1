@@ -21,7 +21,15 @@ describe('Multiplication Table', () => {
 
     const rendered = table.render(start, end)
     expect(rendered).toBe("")
+  });
 
+  it('should return "2*4  3*4  4*4"', () => {
+    const table = new MultiplicationTable()
+    const start = 2
+    const end = 4
+
+    const rendered = table.render(start, end)
+    expect(rendered).toBe("2*4=8  3*4=12  4*4=16")
     
   });
 })
