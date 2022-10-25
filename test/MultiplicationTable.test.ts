@@ -6,10 +6,10 @@ describe('Multiplication Table', () => {
     const start = 1
     const end = 1
 
-    //when
+    // when
     const rendered = render(start, end)
 
-    //then
+    // then
     expect(rendered).toBe('1*1=1')
   })
 })
@@ -20,10 +20,10 @@ describe('Input wrong start and end', () => {
     const start = 2
     const end = 1
 
-    //when
+    // when
     const rendered = render(start, end)
 
-    //then
+    // then
     expect(rendered).toBe('')
   })
   it('input 12 ,11 should be false', () => {
@@ -31,16 +31,16 @@ describe('Input wrong start and end', () => {
     const start = 12
     const end = 11
 
-    //when
+    // when
     const rendered = render(start, end)
 
-    //then
+    // then
     expect(rendered).toBe('')
   })
 })
 describe('Create a line', () => {
   it('With 2 to 4 equal 2*4=8  3*4=12  4*4=16', () => {
-    const line:string = createRow(2,4)
+    const line:string = createRow(2, 4)
     expect(line).toBe('2*4=8  3*4=12  4*4=16')
   })
 })
