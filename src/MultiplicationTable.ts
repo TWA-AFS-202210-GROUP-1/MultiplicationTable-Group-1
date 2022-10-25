@@ -7,7 +7,6 @@ export class MultiplicationTable {
     else {
       return ''
     }
-
   }
 
   private isNumberValid(start: number, end: number): boolean{
@@ -29,7 +28,6 @@ export class MultiplicationTable {
     for (let i = 1; i <= start; i++) {
       for (let j = 1; j <= end; j++){
         if(i>=j){
-          // let expression = `${i}*${j}=${i*j}  `
           formatResult += `${i}*${j}=${i*j}  `
         }
         else{
