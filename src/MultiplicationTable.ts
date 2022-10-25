@@ -2,7 +2,7 @@ export class MultiplicationTable {
   public render(start: number, end: number): string{
     const isNumberValid = this.isNumberValid(start, end)
     if (isNumberValid) {
-      return '1*1=1'
+      return this.generateMultiplicationResult(start, end)
     }
     else {
       return ''
@@ -22,5 +22,22 @@ export class MultiplicationTable {
 
   private isNumberRangeBetween1And10(start: number, end: number): boolean{
     return start<=10 && start >=1 && end<=10 && end >=1
+  }
+
+  private generateMultiplicationResult(start: number, end: number): string{
+    let formatResult = ''
+    for (let i = 1; i <= start; i++) {
+      for (let j = 1; j <= end; j++){
+        if(i>=j){
+          // let expression = `${i}*${j}=${i*j}  `
+          formatResult += `${i}*${j}=${i*j}  `
+        }
+        else{
+          formatResult += '\n'
+        }
+      }
+    }
+    console.log(formatResult)
+    return formatResult
   }
 }
