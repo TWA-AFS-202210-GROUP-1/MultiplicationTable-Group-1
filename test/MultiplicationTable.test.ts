@@ -14,8 +14,8 @@ describe('Multiplication Table', () => {
   })
 })
 
-describe('Input wrong start and end', () => {
-  it('input 2 ,1 should be false', () => {
+describe('Invalid input', () => {
+  it('should return false given (2, 1)', () => {
     // given
     const start = 2
     const end = 1
@@ -26,7 +26,7 @@ describe('Input wrong start and end', () => {
     // then
     expect(rendered).toBe('')
   })
-  it('input 12 ,11 should be false', () => {
+  it('should return false given (12, 11)', () => {
     // given
     const start = 12
     const end = 11
@@ -38,22 +38,23 @@ describe('Input wrong start and end', () => {
     expect(rendered).toBe('')
   })
 })
+
 describe('Create a line', () => {
-  it('With 2 to 4 equal 2*4=8  3*4=12  4*4=16', () => {
-    const line:string = createRow(2, 4)
+  it('should return proper table line given (2, 4)', () => {
+    const line: string = createRow(2, 4)
     expect(line).toBe('2*4=8  3*4=12  4*4=16')
   })
 })
 
-describe('Create a Table', () => {
-  it('With 2 to 4 equal the given table', () => {
-    const table:string = render(2,4)
+describe('Create a table', () => {
+  it('should render multiplication table of (2, 4)', () => {
+    const table: string = render(2, 4)
     expect(table).toBe(`2*2=4
 2*3=6  3*3=9
 2*4=8  3*4=12  4*4=16`)
-  }),
-  it('With 2 to 2 equal the 2*2=4', () => {
-    const table:string = render(2,2)
+  })
+  it('should render multiplication table of (2, 2)', () => {
+    const table: string = render(2, 2)
     expect(table).toBe('2*2=4')
   })
 })
