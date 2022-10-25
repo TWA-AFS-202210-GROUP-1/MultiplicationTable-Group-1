@@ -11,6 +11,17 @@ describe('Multiplication Table', () => {
     const rendered = table.render(start, end)
 
     //then
-    expect(rendered).toBe('1*1=1')
+    expect(rendered).toBe("1*1=1")
   })
+
+  it('should return "" of (0, 1)', () => {
+    const table = new MultiplicationTable()
+    const start = 0
+    const end = 1
+
+    const rendered = table.render(start, end)
+    expect(rendered).toBe("")
+
+    
+  });
 })
