@@ -19,7 +19,7 @@ export function isInRange(start: number, end: number): boolean {
 
 export function createTable(start: number, end: number): string {
   const rangeTable = Array.from({length:(end - start + 1)}, (value, index) => start + index)
-  const tableMultipication: string[] = rangeTable.map((value, index)=> createRow(start, start + index) )
+  const tableMultipication: string[] = rangeTable.map((value, index)=> createRow(start, start + index))
   return tableMultipication.join('\n')
 }
 

@@ -26,7 +26,7 @@ describe('Invalid input', () => {
     // then
     expect(rendered).toBe('')
   })
-  it('should return false given (12, 11)', () => {
+  it('should return false given (2, 11)', () => {
     // given
     const start = 12
     const end = 11
