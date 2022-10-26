@@ -38,6 +38,15 @@ describe('Multiplication Table', () => {
     expect(rendered).toBe("")
   })
 
+  it('should return "" of (2, 1)', () => {
+    const table = new MultiplicationTable()
+    const start = 2
+    const end = 1
+
+    const rendered = table.render(start, end)
+    expect(rendered).toBe("")
+  })
+
   
   // it('should return "2*4  3*4  4*4"', () => {
   //   const table = new MultiplicationTable()
