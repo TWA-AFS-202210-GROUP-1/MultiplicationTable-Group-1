@@ -25,13 +25,14 @@ export class MultiplicationTable {
 
   private generateMultiplicationResult(start: number, end: number): string{
     let formatResult = ''
-    for (let i = 1; i <= start; i++) {
-      for (let j = 1; j <= end; j++){
-        if(i>=j){
+    for (let i = start; i <= end; i++) {
+      for (let j = start; j <= end; j++){
+        if(i>j){
           formatResult += `${i}*${j}=${i*j}  `
         }
         else{
-          formatResult += '\n'
+          formatResult += `${i}*${j}=${i*j}\n`
+          break
         }
       }
     }
