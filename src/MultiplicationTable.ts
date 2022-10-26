@@ -24,11 +24,8 @@ export class MultiplicationTable {
   // 2, 4 => [2,2], [2,3], [2,4]
   private GenerateMulTable(start: number, end: number): string{
     let mulTable = ""
-    const intervalLength = end - start
-    const lineStart = start
-    for (let index = 0; index <= intervalLength; index++) {
-      let lineEnd = lineStart + index
-      let eachLine = this.GenerateEachLine(lineStart, lineEnd) + '\n'
+    for (let index = start; index <= end; index++) {
+      let eachLine = this.GenerateEachLine(start, index) + '\n'
       mulTable += eachLine
     }
     return mulTable.substring(0,mulTable.length-1)
@@ -36,12 +33,10 @@ export class MultiplicationTable {
 
   // [2, 4] => "2*4  3*4  4*4"
   private GenerateEachLine(lineStart: number, lineEnd: number): string{
-    const lineLength = lineEnd - lineStart + 1
     let eachLine = ""
-    for (let index = 0; index < lineLength; index++) {
-      const newCell = lineStart + '*' + lineEnd + '=' + lineStart * lineEnd + '  '
+    for (let index = lineStart; index <= lineEnd; index++) {
+      const newCell = index + '*' + lineEnd + '=' + index * lineEnd + '  '
       eachLine += newCell
-      lineStart += 1
     }
     return eachLine.substring(0,eachLine.length-2)
   }
